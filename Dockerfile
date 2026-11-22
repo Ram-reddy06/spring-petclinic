@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jre-alpine AS build
+FROM maven:3.9-eclipse-temurin-17 AS build
 COPY . /APP
 WORKDIR /APP
 RUN mvn clean package -Dcheckstyle.skip

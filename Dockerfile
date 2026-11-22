@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jre-alpine AS build
 COPY . /APP
 WORKDIR /APP
-RUN apt install maven -y && \ mvn clean package -Dcheckstyle.skip
+RUN mvn clean package -Dcheckstyle.skip
 
 FROM eclipse-temurin:21-jre-alpine AS runtime
 COPY --from=build /APP/target/*.jar devops/dev.jar
